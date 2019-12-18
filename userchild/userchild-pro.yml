@@ -1,0 +1,27 @@
+spring:
+    application:
+        name: userchild
+server:
+  port: 8488
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8182/eureka
+ribbon:
+  eureka:
+    enabled: true
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+#开启hystrix熔断机制
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    myusers-service:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+
